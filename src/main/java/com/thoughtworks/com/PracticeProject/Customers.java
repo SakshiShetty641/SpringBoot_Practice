@@ -1,5 +1,6 @@
 package com.thoughtworks.com.PracticeProject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -10,6 +11,9 @@ import org.springframework.stereotype.Component;
 public class Customers {
     private String name;
     private int age;
+
+    @Autowired
+    private Technologies techDetails;
 
     public String getName() {
         return name;
@@ -27,7 +31,17 @@ public class Customers {
         this.age = age;
     }
 
-    public void display(){
+    public Technologies getTechDetails() {
+        return techDetails;
+    }
+
+    public void setTechDetails(Technologies techDetails) {
+        this.techDetails = techDetails;
+    }
+
+    public void display() {
         System.out.println("Customers Object Returned Successfully");
+        techDetails.tech();
     }
 }
+
